@@ -6,7 +6,9 @@ $myid = $_SESSION['id'];
 ?>
 <!DOCTYPE html>
 <html>
-<head><title>My Shifts</title><link rel="stylesheet" href="css/style.css"></head>
+<head><title>My Shifts</title><link rel="stylesheet" href="css/style.css">
+    <link rel="manifest" href="manifest.json">
+</head>
 <body>
     <div class="container">
         <h1>Welcome, <?php echo $_SESSION['name']; ?></h1> <a href="logout.php">Logout</a>
@@ -21,5 +23,12 @@ $myid = $_SESSION['id'];
             ?>
         </table>
     </div>
+    <script>
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('sw.js')
+        .then(() => console.log('Service Worker Registered'))
+        .catch(err => console.log('Service Worker Failed:', err));
+    }
+    </script>
 </body>
 </html>

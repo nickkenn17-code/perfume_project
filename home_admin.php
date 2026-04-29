@@ -31,6 +31,7 @@ if (isset($_POST['add_schedule'])) {
     <title>Admin Dashboard</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="manifest" href="manifest.json">
 </head>
 <body>
     <div class="container">
@@ -100,5 +101,12 @@ if (isset($_POST['add_schedule'])) {
             ?>
         </table>
     </div>
+    <script>
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('sw.js')
+        .then(() => console.log('Service Worker Registered'))
+        .catch(err => console.log('Service Worker Failed:', err));
+    }
+    </script>
 </body>
 </html>

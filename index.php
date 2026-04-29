@@ -4,6 +4,7 @@
     <title>LOGIN</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
     <link rel="stylesheet" href="css/style.css">
+    <link rel="manifest" href="manifest.json">
 </head>
 <body>
     <div class="container" style="display:flex; flex-direction:column; justify-content:center;">
@@ -26,5 +27,12 @@
 
         <p style="margin-top:20px; font-size:12px; color:#aaa;">© 2025 Perfume Co.</p>
     </div>
+    <script>
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('sw.js')
+        .then(() => console.log('Service Worker Registered'))
+        .catch(err => console.log('Service Worker Failed:', err));
+    }
+    </script>
 </body>
 </html>

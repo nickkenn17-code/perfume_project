@@ -4,7 +4,7 @@ if (!isset($_SESSION['id']) || $_SESSION['role_id'] != 4) { header("Location: in
 ?>
 <!DOCTYPE html>
 <html>
-<head><title>Super Admin</title><link rel="stylesheet" href="css/style.css"></head>
+<head><title>Super Admin</title><link rel="stylesheet" href="css/style.css"> <link rel="manifest" href="manifest.json"></head>
 <body>
     <div class="container" style="text-align:center;">
         <h1>Hello, <?php echo $_SESSION['name']; ?></h1>
@@ -15,5 +15,12 @@ if (!isset($_SESSION['id']) || $_SESSION['role_id'] != 4) { header("Location: in
         <br><br>
         <a href="logout.php"><button class="btn-danger">Logout</button></a>
     </div>
+    <script>
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('sw.js')
+        .then(() => console.log('Service Worker Registered'))
+        .catch(err => console.log('Service Worker Failed:', err));
+    }
+    </script>
 </body>
 </html>

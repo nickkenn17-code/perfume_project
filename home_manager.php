@@ -23,7 +23,9 @@ if (isset($_POST['verify'])) {
 ?>
 <!DOCTYPE html>
 <html>
-<head><title>Manager</title><link rel="stylesheet" href="css/style.css"></head>
+<head><title>Manager</title><link rel="stylesheet" href="css/style.css">
+    <link rel="manifest" href="manifest.json">
+</head>
 <body>
     <div class="container">
         <h1>Attendance Checklist</h1> <a href="logout.php">Logout</a>
@@ -47,5 +49,12 @@ if (isset($_POST['verify'])) {
             </div>
         <?php } ?>
     </div>
+    <script>
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('sw.js')
+        .then(() => console.log('Service Worker Registered'))
+        .catch(err => console.log('Service Worker Failed:', err));
+    }
+    </script>
 </body>
 </html>
